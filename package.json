@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon bin/http.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "NODE_ENV=test jest --detectOpenHandles",
     "db:create:test": "NODE_ENV=test npx sequelize db:create",
     "db:migrate:test": "NODE_ENV=test npx sequelize db:migrate"
   },

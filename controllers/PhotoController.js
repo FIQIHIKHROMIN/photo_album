@@ -14,6 +14,7 @@ class PhotoController{
 
             res.status(200).json(data)
         } catch (error) {
+            console.log(error)
             res.status(500).json(error)
         }
     }
@@ -39,6 +40,7 @@ class PhotoController{
 
             res.status(200).json(data)
         } catch (error) {
+            console.log(error)
             res.status(error.code || 500).json(error.message)
         }
     }
@@ -51,13 +53,15 @@ class PhotoController{
             } = req.body
 
             const userData = req.userData
+            console.log(userData, "<<userdata")
 
             const data = await Photo.create({
                 title,
                 caption,
                 image_url,
                 UserId: userData.id
-            })
+            });
+           
             res.status(201).json(data)
         } catch (error) {
             res.status(500).json(error)
@@ -93,6 +97,7 @@ class PhotoController{
 
             res.status(201).json(data)
         } catch (error) {
+            console.log(error)
             res.status(error.code || 500).json(error.message)
         }
     }
@@ -113,6 +118,7 @@ class PhotoController{
             res.status(200).json("Success delete photos")
 
         } catch (error) {
+            console.log(error)
             res.status(error.code || 500).json(error.message)
         }
     }

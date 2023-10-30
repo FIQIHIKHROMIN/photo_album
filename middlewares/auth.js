@@ -32,11 +32,11 @@ const authentication = async(req, res, next) => {
         if(!userData) {
             throw {
                 code: 401,
-                message: "User not found"
+                message: "User not found!"
             }
         }
 
-        req.Userdata = {
+        req.userData = {
             id: userData.id,
             email: userData.email,
             username: userData.username

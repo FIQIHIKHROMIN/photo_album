@@ -44,7 +44,6 @@ class UserController  {
         } catch (error) {
 
             console.log(error)
-
             res.status(500).json(error)
         }
     }
@@ -65,13 +64,12 @@ class UserController  {
             if (!data) {
                 throw {
                     code: 404,
-                    mesagge: " User not registed"
+                    mesagge: " User not registed!"
                 }
             }
             //compare password
             const isValid = comparePassword(password, data.password)
 
-            console.log(isValid, "<<comparePassword");
             if(!isValid) {
                 throw {
                     code: 401,
@@ -84,15 +82,14 @@ class UserController  {
                 id: data.id,
                 email: data.email,
                 username: data.username
-
             })
 
             res.status(200).json({
                 token
             })
+            console.log(token)
         } catch (error) {
             res.status(error.code || 500).json(error)
-            console.log(error)
             
         }
     }

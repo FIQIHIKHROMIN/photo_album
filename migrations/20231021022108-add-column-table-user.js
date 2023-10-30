@@ -1,7 +1,5 @@
 'use strict';
 
-const { QueryInterface } = require('sequelize');
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -24,6 +22,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await QueryInterface.removeColumn("Users", "password", null)
+    await queryInterface.removeColumn("Users", "password", null)
   }
 };
